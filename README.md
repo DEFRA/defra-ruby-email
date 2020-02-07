@@ -1,5 +1,11 @@
 # Defra Ruby Email
 
+[![Build Status](https://travis-ci.com/DEFRA/defra-ruby-email.svg?branch=master)](https://travis-ci.com/DEFRA/defra-ruby-email)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0eb068e0b0ec99debf88/maintainability)](https://codeclimate.com/github/DEFRA/defra-ruby-email/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0eb068e0b0ec99debf88/test_coverage)](https://codeclimate.com/github/DEFRA/defra-ruby-email/test_coverage)
+[![security](https://hakiri.io/github/DEFRA/defra-ruby-email/master.svg)](https://hakiri.io/github/DEFRA/defra-ruby-email/master)
+[![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
+
 > Work in progress. This project is not yet complete!
 
 A Rails Engine used by the [Ruby services team](https://github.com/DEFRA/ruby-services-team) in their digital services.
