@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "configuration"
+
 module DefraRubyEmail
   class Engine < ::Rails::Engine
     isolate_namespace DefraRubyEmail
