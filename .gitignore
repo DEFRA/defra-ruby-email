@@ -39,4 +39,4 @@ spec/dummy/tmp/
 spec/dummy/.sass-cache
 
 # Ignore Gemfile.lock as this is a Ruby gem
-Gemfile.lock
+# Gemfile.lock
