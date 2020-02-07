@@ -2,7 +2,7 @@
 
 module Helpers
   module Configuration
-    def self.prep_for_tests(delay = 100)
+    def self.prep_for_tests
       DefraRubyEmail.reset_configuration
       DefraRubyEmail.configure do |config|
         config.enable = true
