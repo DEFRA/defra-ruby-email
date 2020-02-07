@@ -6,7 +6,6 @@ module Helpers
       DefraRubyEmail.reset_configuration
       DefraRubyEmail.configure do |config|
         config.enable = true
-        config.delay = delay
       end
     end
 
