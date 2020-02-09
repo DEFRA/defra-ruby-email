@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require_relative "configuration"
+require_relative "last_email_cache"
+require_relative "last_email_observer"
 
 module DefraRubyEmail
   class Engine < ::Rails::Engine
