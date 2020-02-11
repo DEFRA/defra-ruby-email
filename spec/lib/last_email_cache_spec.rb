@@ -8,6 +8,10 @@ module DefraRubyEmail
 
     before(:each) { instance.reset }
 
+    let(:recipient) { "test@example.com" }
+    let(:add_attachment) { false }
+    let(:expected_keys) { %w[date from to bcc cc reply_to subject body attachments] }
+
     describe "#last_email_json" do
 
       context "when the no emails have been sent" do
@@ -28,11 +32,8 @@ module DefraRubyEmail
       end
 
       context "when a basic email is sent" do
-        let(:recipient) { "test@example.com" }
-        let(:expected_keys) { %w[date from to bcc cc reply_to subject body attachments] }
-
         context "and it is formatted as plain text" do
-          before(:each) { TestMailer.text_email(recipient).deliver_now }
+          before(:each) { TestMailer.text_email(recipient, add_attachment).deliver_now }
 
           it "returns a JSON string" do
             result = instance.last_email_json
@@ -55,7 +56,7 @@ module DefraRubyEmail
         end
 
         context "and it is formatted as html" do
-          before(:each) { TestMailer.html_email(recipient).deliver_now }
+          before(:each) { TestMailer.html_email(recipient, add_attachment).deliver_now }
 
           it "returns a JSON string" do
             result = instance.last_email_json
@@ -83,11 +84,8 @@ module DefraRubyEmail
       # attachment. If it contains at least 2 of these it will be sent as a
       # multipart email
       context "when a multi-part email is sent" do
-        let(:recipient) { "test@example.com" }
-        let(:expected_keys) { %w[date from to bcc cc reply_to subject body attachments] }
-
         context "and it contains both a html and text version" do
-          before(:each) { TestMailer.multipart_email(recipient).deliver_now }
+          before(:each) { TestMailer.multipart_email(recipient, add_attachment).deliver_now }
 
           it "returns a JSON string" do
             result = instance.last_email_json
@@ -110,7 +108,9 @@ module DefraRubyEmail
         end
 
         context "and contains both a html and text version plus an attachment" do
-          before(:each) { TestMailer.multipart_email(recipient, true).deliver_now }
+          before(:each) { TestMailer.multipart_email(recipient, add_attachment).deliver_now }
+
+          let(:add_attachment) { true }
 
           it "returns a JSON string" do
             result = instance.last_email_json
@@ -133,7 +133,9 @@ module DefraRubyEmail
         end
 
         context "but it just contains a plain text part and an attachment" do
-          before(:each) { TestMailer.text_email(recipient, true).deliver_now }
+          before(:each) { TestMailer.text_email(recipient, add_attachment).deliver_now }
+
+          let(:add_attachment) { true }
 
           it "returns a JSON string" do
             result = instance.last_email_json
@@ -156,7 +158,9 @@ module DefraRubyEmail
         end
 
         context "but it just contains a html part and an attachment" do
-          before(:each) { TestMailer.html_email(recipient, true).deliver_now }
+          before(:each) { TestMailer.html_email(recipient, add_attachment).deliver_now }
+
+          let(:add_attachment) { true }
 
           it "returns a JSON string" do
             result = instance.last_email_json
@@ -181,13 +185,11 @@ module DefraRubyEmail
 
       context "when multiple emails have been sent" do
         before(:each) do
-          TestMailer.text_email(first_recipient).deliver_now
-          TestMailer.text_email(second_recipient).deliver_now
+          TestMailer.text_email(recipient, add_attachment).deliver_now
+          TestMailer.text_email(last_recipient, add_attachment).deliver_now
         end
 
-        let(:expected_keys) { %w[date from to bcc cc reply_to subject body attachments] }
-        let(:first_recipient) { "test@example.com" }
-        let(:second_recipient) { "joe.bloggs@example.com" }
+        let(:last_recipient) { "joe.bloggs@example.com" }
 
         it "returns a JSON string" do
           result = instance.last_email_json
@@ -211,7 +213,7 @@ module DefraRubyEmail
         it "contains the details of the last email sent" do
           result = JSON.parse(instance.last_email_json)
 
-          expect(result["last_email"]["to"]).to eq([second_recipient])
+          expect(result["last_email"]["to"]).to eq([last_recipient])
         end
       end
     end
