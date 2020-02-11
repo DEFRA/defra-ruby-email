@@ -8,6 +8,10 @@ module DefraRubyEmail
 
     before(:each) { instance.reset }
 
+    let(:recipient) { "test@example.com" }
+    let(:add_attachment) { false }
+    let(:expected_keys) { %w[date from to bcc cc reply_to subject body attachments] }
+
     describe "#last_email_json" do
 
       context "when the no emails have been sent" do
@@ -27,56 +31,9 @@ module DefraRubyEmail
         end
       end
 
-      context "when an email has been sent" do
-        let(:recipient) { "test@example.com" }
-        let(:expected_keys) { %w[date from to bcc cc reply_to subject body attachments] }
-
-        context "and its a multi-part email" do
-          before(:each) do
-            TestMailer.multi_part_email(recipient).deliver_now
-          end
-
-          it "returns a JSON string" do
-            result = instance.last_email_json
-
-            expect(result).to be_a(String)
-            expect { JSON.parse(result) }.to_not raise_error
-          end
-
-          it "contains the attributes of the email" do
-            result = JSON.parse(instance.last_email_json)
-
-            expect(result["last_email"].keys).to match_array(expected_keys)
-          end
-        end
-
-        context "and its a basic email" do
-          before(:each) do
-            TestMailer.basic_email(recipient).deliver_now
-          end
-
-          it "returns a JSON string" do
-            result = instance.last_email_json
-
-            expect(result).to be_a(String)
-            expect { JSON.parse(result) }.to_not raise_error
-          end
-
-          it "contains the attributes of the email" do
-            result = JSON.parse(instance.last_email_json)
-
-            expect(result["last_email"].keys).to match_array(expected_keys)
-          end
-        end
-
-        context "when multiple emails have been sent" do
-          before(:each) do
-            TestMailer.basic_email(first_recipient).deliver_now
-            TestMailer.basic_email(second_recipient).deliver_now
-          end
-
-          let(:first_recipient) { "test@example.com" }
-          let(:second_recipient) { "joe.bloggs@example.com" }
+      context "when a basic email is sent" do
+        context "and it is formatted as plain text" do
+          before(:each) { TestMailer.text_email(recipient, add_attachment).deliver_now }
 
           it "returns a JSON string" do
             result = instance.last_email_json
@@ -91,15 +48,174 @@ module DefraRubyEmail
             expect(result["last_email"].keys).to match_array(expected_keys)
           end
 
-          it "contains the details of the last email sent" do
+          it "extracts the plain text body content" do
             result = JSON.parse(instance.last_email_json)
 
-            expect(result["last_email"]["to"]).to eq([second_recipient])
+            expect(result["last_email"]["body"]).to start_with("This is the text version of an email")
           end
         end
 
+        context "and it is formatted as html" do
+          before(:each) { TestMailer.html_email(recipient, add_attachment).deliver_now }
+
+          it "returns a JSON string" do
+            result = instance.last_email_json
+
+            expect(result).to be_a(String)
+            expect { JSON.parse(result) }.to_not raise_error
+          end
+
+          it "contains the attributes of the email" do
+            result = JSON.parse(instance.last_email_json)
+
+            expect(result["last_email"].keys).to match_array(expected_keys)
+          end
+
+          it "extracts the html body content" do
+            result = JSON.parse(instance.last_email_json)
+
+            expect(result["last_email"]["body"]).to start_with("<h1>This is the html version of an email</h1>")
+          end
+        end
+      end
+
+      # Multi-part essentially means the email contains more than 2 elements. An
+      # element can be a HTML version, and plain text version, and an
+      # attachment. If it contains at least 2 of these it will be sent as a
+      # multipart email
+      context "when a multi-part email is sent" do
+        context "and it contains both a html and text version" do
+          before(:each) { TestMailer.multipart_email(recipient, add_attachment).deliver_now }
+
+          it "returns a JSON string" do
+            result = instance.last_email_json
+
+            expect(result).to be_a(String)
+            expect { JSON.parse(result) }.to_not raise_error
+          end
+
+          it "contains the attributes of the email" do
+            result = JSON.parse(instance.last_email_json)
+
+            expect(result["last_email"].keys).to match_array(expected_keys)
+          end
+
+          it "extracts the plain text body content" do
+            result = JSON.parse(instance.last_email_json)
+
+            expect(result["last_email"]["body"]).to start_with("This is the text version of an email")
+          end
+        end
+
+        context "and contains both a html and text version plus an attachment" do
+          before(:each) { TestMailer.multipart_email(recipient, add_attachment).deliver_now }
+
+          let(:add_attachment) { true }
+
+          it "returns a JSON string" do
+            result = instance.last_email_json
+
+            expect(result).to be_a(String)
+            expect { JSON.parse(result) }.to_not raise_error
+          end
+
+          it "contains the attributes of the email" do
+            result = JSON.parse(instance.last_email_json)
+
+            expect(result["last_email"].keys).to match_array(expected_keys)
+          end
+
+          it "extracts the plain text body content" do
+            result = JSON.parse(instance.last_email_json)
+
+            expect(result["last_email"]["body"]).to start_with("This is the text version of an email")
+          end
+        end
+
+        context "but it just contains a plain text part and an attachment" do
+          before(:each) { TestMailer.text_email(recipient, add_attachment).deliver_now }
+
+          let(:add_attachment) { true }
+
+          it "returns a JSON string" do
+            result = instance.last_email_json
+
+            expect(result).to be_a(String)
+            expect { JSON.parse(result) }.to_not raise_error
+          end
+
+          it "contains the attributes of the email" do
+            result = JSON.parse(instance.last_email_json)
+
+            expect(result["last_email"].keys).to match_array(expected_keys)
+          end
+
+          it "extracts the plain text body content" do
+            result = JSON.parse(instance.last_email_json)
+
+            expect(result["last_email"]["body"]).to start_with("This is the text version of an email")
+          end
+        end
+
+        context "but it just contains a html part and an attachment" do
+          before(:each) { TestMailer.html_email(recipient, add_attachment).deliver_now }
+
+          let(:add_attachment) { true }
+
+          it "returns a JSON string" do
+            result = instance.last_email_json
+
+            expect(result).to be_a(String)
+            expect { JSON.parse(result) }.to_not raise_error
+          end
+
+          it "contains the attributes of the email" do
+            result = JSON.parse(instance.last_email_json)
+
+            expect(result["last_email"].keys).to match_array(expected_keys)
+          end
+
+          it "extracts the html body content" do
+            result = JSON.parse(instance.last_email_json)
+
+            expect(result["last_email"]["body"]).to start_with("<h1>This is the html version of an email</h1>")
+          end
+        end
+      end
+
+      context "when multiple emails have been sent" do
+        before(:each) do
+          TestMailer.text_email(recipient, add_attachment).deliver_now
+          TestMailer.text_email(last_recipient, add_attachment).deliver_now
+        end
+
+        let(:last_recipient) { "joe.bloggs@example.com" }
+
+        it "returns a JSON string" do
+          result = instance.last_email_json
+
+          expect(result).to be_a(String)
+          expect { JSON.parse(result) }.to_not raise_error
+        end
+
+        it "contains the attributes of the email" do
+          result = JSON.parse(instance.last_email_json)
+
+          expect(result["last_email"].keys).to match_array(expected_keys)
+        end
+
+        it "extracts the plain text body content" do
+          result = JSON.parse(instance.last_email_json)
+
+          expect(result["last_email"]["body"]).to start_with("This is the text version of an email")
+        end
+
+        it "contains the details of the last email sent" do
+          result = JSON.parse(instance.last_email_json)
+
+          expect(result["last_email"]["to"]).to eq([last_recipient])
+        end
       end
     end
-
   end
 end

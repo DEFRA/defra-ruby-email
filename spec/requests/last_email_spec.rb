@@ -11,7 +11,7 @@ module DefraRubyEmail
     context "when mocks are enabled" do
       before(:each) do
         Helpers::Configuration.prep_for_tests
-        TestMailer.basic_email("test@example.com").deliver_now
+        TestMailer.text_email("test@example.com").deliver_now
       end
 
       it "returns a JSON response with a 200 code containing details of the last email sent" do
