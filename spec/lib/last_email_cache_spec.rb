@@ -205,7 +205,7 @@ module DefraRubyEmail
         it "extracts the plain text body content" do
           result = JSON.parse(instance.last_email_json)
 
-          expect(result["last_email"]["body"]).to start_with("This is a basic text email")
+          expect(result["last_email"]["body"]).to start_with("This is the text version of an email")
         end
 
         it "contains the details of the last email sent" do
