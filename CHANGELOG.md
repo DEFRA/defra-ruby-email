@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.2.0](https://github.com/DEFRA/defra-ruby-email/tree/v0.2.0) (2020-02-19)
+
+[Full Changelog](https://github.com/DEFRA/defra-ruby-email/compare/v0.1.0...v0.2.0)
+
+**Implemented enhancements:**
+
+- Add rake task to test email connections [\#7](https://github.com/DEFRA/defra-ruby-email/pull/7) ([Cruikshanks](https://github.com/Cruikshanks))
+
 ## [v0.1.0](https://github.com/DEFRA/defra-ruby-email/tree/v0.1.0) (2020-02-11)
 
 [Full Changelog](https://github.com/DEFRA/defra-ruby-email/compare/db4875196024ca38525c8785dd3d798ed754128c...v0.1.0)
