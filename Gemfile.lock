@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    defra_ruby_email (0.1.0)
+    defra_ruby_email (0.2.0)
       rails (~> 4.2.11.1)
 
 GEM
