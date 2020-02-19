@@ -102,6 +102,20 @@ In a production environment it is likely that the same app will be deployed to m
 
 So trying to get the last email sent by an application is not possible. Ensure in your tests that you build in a retry function that allows you to hit an environment multiple times in order to confirm if an expected email has been sent.
 
+## Rake tasks
+
+### Test email
+
+The gem includes a rake helper function that allows you to test an environment has been correctly configured for sending email. It relies on the environment and the app the engine is mounted into having the necessary setup to allow emails to send.
+
+```bash
+EMAIL_TEST_ADDRESS=hitme@gmail.com bundle exec rake defra_ruby_email:test
+```
+
+If all is well, a multi-part email (both HTML and Text) with an attached image should be received at the `EMAIL_TEST_ADDRESS` you specify.
+
+It will also output the result of sending the email to the console.
+
 ## Installation
 
 You don't need to do this if you're just mounting the engine without making any changes.
