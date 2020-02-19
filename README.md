@@ -4,6 +4,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/0eb068e0b0ec99debf88/maintainability)](https://codeclimate.com/github/DEFRA/defra-ruby-email/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/0eb068e0b0ec99debf88/test_coverage)](https://codeclimate.com/github/DEFRA/defra-ruby-email/test_coverage)
 [![security](https://hakiri.io/github/DEFRA/defra-ruby-email/master.svg)](https://hakiri.io/github/DEFRA/defra-ruby-email/master)
+[![Gem Version](https://badge.fury.io/rb/defra_ruby_email.svg)](https://badge.fury.io/rb/defra_ruby_email)
 [![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
 
 A Rails Engine used by the [Ruby services team](https://github.com/DEFRA/ruby-services-team) in their digital services.
