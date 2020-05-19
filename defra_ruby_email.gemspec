@@ -19,7 +19,12 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 4.2.11.1"
+  s.add_dependency "rails", "~> 4.2.11.3"
+  # Pin version of sprockers. Rails 4.2.11.3 seems to want to bring in version
+  # 4.0.0 of sprockets (even though that version is not directly referenced in
+  # the rails gemspec or Gemfile.lock) however that requires ruby 2.5 as a
+  # minimum
+  s.add_dependency "sprockets", "~> 3.7.2"
 
   s.add_development_dependency "defra_ruby_style"
 
