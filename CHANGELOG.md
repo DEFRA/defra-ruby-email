@@ -1,5 +1,27 @@
 # Changelog
 
+## [v1.0.0](https://github.com/DEFRA/defra-ruby-email/tree/v1.0.0) (2020-06-04)
+
+[Full Changelog](https://github.com/DEFRA/defra-ruby-email/compare/v0.2.0...v1.0.0)
+
+**Implemented enhancements:**
+
+- Update engine to use Rails 6 and ruby 2.7 [\#19](https://github.com/DEFRA/defra-ruby-email/pull/19) ([cintamani](https://github.com/cintamani))
+
+**Security fixes:**
+
+- \[Security\] Bump nokogiri from 1.10.7 to 1.10.9 [\#9](https://github.com/DEFRA/defra-ruby-email/pull/9) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+**Merged pull requests:**
+
+- Fix issue in travis with bundler args [\#18](https://github.com/DEFRA/defra-ruby-email/pull/18) ([Cruikshanks](https://github.com/Cruikshanks))
+- Bump rails from 4.2.11.1 to 4.2.11.3 [\#17](https://github.com/DEFRA/defra-ruby-email/pull/17) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Use multiple rubocop formats in Travis build [\#15](https://github.com/DEFRA/defra-ruby-email/pull/15) ([Cruikshanks](https://github.com/Cruikshanks))
+- Bump defra\_ruby\_style from 0.1.4 to 0.2.1 [\#14](https://github.com/DEFRA/defra-ruby-email/pull/14) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump github\_changelog\_generator from 1.15.0 to 1.15.2 [\#13](https://github.com/DEFRA/defra-ruby-email/pull/13) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump pry-byebug from 3.8.0 to 3.9.0 [\#11](https://github.com/DEFRA/defra-ruby-email/pull/11) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Switch to SonarCloud from CodeClimate [\#10](https://github.com/DEFRA/defra-ruby-email/pull/10) ([Cruikshanks](https://github.com/Cruikshanks))
+
 ## [v0.2.0](https://github.com/DEFRA/defra-ruby-email/tree/v0.2.0) (2020-02-19)
 
 [Full Changelog](https://github.com/DEFRA/defra-ruby-email/compare/v0.1.0...v0.2.0)
