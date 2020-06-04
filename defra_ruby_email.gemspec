@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 4.2.11.3"
+  s.add_dependency "rails", "~> 6.0.3.1"
   # Pin version of sprockers. Rails 4.2.11.3 seems to want to bring in version
   # 4.0.0 of sprockets (even though that version is not directly referenced in
   # the rails gemspec or Gemfile.lock) however that requires ruby 2.5 as a
@@ -36,6 +36,6 @@ Gem::Specification.new do |s|
   # https://github.com/skywinder/github-changelog-generator#github-token
   s.add_development_dependency "github_changelog_generator"
   s.add_development_dependency "pry-byebug"
-  s.add_development_dependency "rspec-rails", "~> 3.8.0"
+  s.add_development_dependency "rspec-rails"
   s.add_development_dependency "simplecov", "~> 0.17.1"
 end
