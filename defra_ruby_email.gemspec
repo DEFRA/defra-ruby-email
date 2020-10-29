@@ -28,6 +28,9 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "defra_ruby_style"
 
+  # We want to be able to understand Notify objects
+  s.add_dependency "notifications-ruby-client"
+
   # Allows us to automatically generate the change log from the tags, issues,
   # labels and pull requests on GitHub. Added as a dependency so all dev's have
   # access to it to generate a log, and so they are using the same version.
