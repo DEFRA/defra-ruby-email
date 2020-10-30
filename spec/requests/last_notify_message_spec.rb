@@ -9,6 +9,7 @@ module DefraRubyEmail
 
     let(:path) { "/defra_ruby_email/last-notify-message" }
 
+    let(:notify_api_key) { "hello-i-am-a-key" }
     let(:client) { double(:client, get_notifications: notifications) }
     let(:notifications) { double(:notifications, collection: collection) }
     let(:collection) { double(:collection, first: notification) }
@@ -51,7 +52,9 @@ module DefraRubyEmail
       before(:each) do
         Helpers::Configuration.prep_for_tests
 
-        expect(Notifications::Client).to receive(:new).with(ENV["NOTIFY_API_KEY"]).and_return(client)
+        expect(DefraRubyEmail.configuration).to receive(:notify_api_key).and_return(notify_api_key)
+
+        expect(Notifications::Client).to receive(:new).with(notify_api_key).and_return(client)
         expect(client).to receive(:get_notifications).and_return(notifications)
       end
 
