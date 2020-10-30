@@ -26,13 +26,13 @@ module DefraRubyEmail
 
       message_hash = {}
       message_hash[:type] = last_notify_message.type
-
+      message_hash[:template] = last_notify_message.template
       message_hash[:subject] = last_notify_message.subject
       message_hash[:body] = last_notify_message.body
       message_hash[:date] = last_notify_message.sent_at
 
-      # Email-specific attributes
-      message_hash[:to] = last_notify_message.email_address
+      # Email and phone-specific attributes
+      message_hash[:to] = last_notify_message.email_address || last_notify_message.phone_number
       # Letter-specific attributes
       LETTER_ATTRIBUTES.each do |attribute|
         message_hash[attribute] = last_notify_message.public_send(attribute)

@@ -16,10 +16,12 @@ module DefraRubyEmail
     let(:notification) do
       double(:notification,
              type: "email",
+             template: "template",
              subject: "Subject",
              body: "Body",
              sent_at: "datetime",
              email_address: "test@example.com",
+             phone_number: nil,
              line_1: nil,
              line_2: nil,
              line_3: nil,
@@ -34,6 +36,7 @@ module DefraRubyEmail
         {
           last_notify_message: {
             type: "email",
+            template: "template",
             subject: "Subject",
             body: "Body",
             date: "datetime",

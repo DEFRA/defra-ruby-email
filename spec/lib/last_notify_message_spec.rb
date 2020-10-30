@@ -14,10 +14,12 @@ module DefraRubyEmail
     let(:notification) do
       double(:notification,
              type: "email",
+             template: "template",
              subject: "Subject",
              body: "Body",
              sent_at: "datetime",
              email_address: "test@example.com",
+             phone_number: nil,
              line_1: nil,
              line_2: nil,
              line_3: nil,
@@ -27,7 +29,7 @@ module DefraRubyEmail
              postcode: nil)
     end
 
-    let(:expected_keys) { %w[type subject body date to line_1 line_2 line_3 line_4 line_5 line_6 postcode] }
+    let(:expected_keys) { %w[type template subject body date to line_1 line_2 line_3 line_4 line_5 line_6 postcode] }
 
     describe "#get_last_notify_message" do
       it "makes a call to the Notify client" do
