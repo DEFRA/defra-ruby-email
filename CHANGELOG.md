@@ -1,5 +1,24 @@
 # Changelog
 
+## [v1.1.0](https://github.com/DEFRA/defra-ruby-email/tree/v1.1.0) (2020-10-30)
+
+[Full Changelog](https://github.com/DEFRA/defra-ruby-email/compare/v1.0.0...v1.1.0)
+
+**Implemented enhancements:**
+
+- Add ability to check last Notify message [\#29](https://github.com/DEFRA/defra-ruby-email/pull/29) ([irisfaraway](https://github.com/irisfaraway))
+
+**Security fixes:**
+
+- \[Security\] Bump rack from 2.2.2 to 2.2.3 [\#21](https://github.com/DEFRA/defra-ruby-email/pull/21) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+**Merged pull requests:**
+
+- Bump rails from 6.0.3.3 to 6.0.3.4 [\#27](https://github.com/DEFRA/defra-ruby-email/pull/27) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rails from 6.0.3.2 to 6.0.3.3 [\#25](https://github.com/DEFRA/defra-ruby-email/pull/25) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rails from 6.0.3.1 to 6.0.3.2 [\#23](https://github.com/DEFRA/defra-ruby-email/pull/23) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump defra\_ruby\_style from 0.2.1 to 0.2.2 [\#20](https://github.com/DEFRA/defra-ruby-email/pull/20) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## [v1.0.0](https://github.com/DEFRA/defra-ruby-email/tree/v1.0.0) (2020-06-04)
 
 [Full Changelog](https://github.com/DEFRA/defra-ruby-email/compare/v0.2.0...v1.0.0)
