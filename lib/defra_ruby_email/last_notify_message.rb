@@ -15,7 +15,7 @@ module DefraRubyEmail
       @last_notify_message = nil
     end
 
-    def get_last_notify_message
+    def retrieve_last_notify_message
       client = Notifications::Client.new(DefraRubyEmail.configuration.notify_api_key)
       response = client.get_notifications
       @last_notify_message = response.collection.first

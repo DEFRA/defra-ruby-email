@@ -31,14 +31,14 @@ module DefraRubyEmail
 
     let(:expected_keys) { %w[type template subject body date to line_1 line_2 line_3 line_4 line_5 line_6 postcode] }
 
-    describe "#get_last_notify_message" do
+    describe "#retrieve_last_notify_message" do
       it "makes a call to the Notify client" do
         expect(Notifications::Client).to receive(:new).with(DefraRubyEmail.configuration.notify_api_key).and_return(client)
         expect(client).to receive(:get_notifications).and_return(notifications)
 
         expect(instance.last_notify_message).to eq(nil)
 
-        instance.get_last_notify_message
+        instance.retrieve_last_notify_message
 
         expect(instance.last_notify_message).to eq(notification)
       end
