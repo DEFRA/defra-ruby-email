@@ -33,7 +33,7 @@ module DefraRubyEmail
 
     describe "#get_last_notify_message" do
       it "makes a call to the Notify client" do
-        expect(Notifications::Client).to receive(:new).with(ENV["NOTIFY_API_KEY"]).and_return(client)
+        expect(Notifications::Client).to receive(:new).with(DefraRubyEmail.configuration.notify_api_key).and_return(client)
         expect(client).to receive(:get_notifications).and_return(notifications)
 
         expect(instance.last_notify_message).to eq(nil)
@@ -63,7 +63,9 @@ module DefraRubyEmail
       end
 
       context "when a message has been sent" do
-        before(:each) { instance.get_last_notify_message }
+        before(:each) do
+          instance.last_notify_message = notification
+        end
 
         it "returns a JSON string" do
           result = instance.last_notify_message_json
