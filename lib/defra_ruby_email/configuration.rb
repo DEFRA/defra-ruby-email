@@ -3,6 +3,8 @@
 module DefraRubyEmail
   class Configuration
 
+    attr_accessor :notify_api_key
+
     def initialize
       @enable = false
     end
