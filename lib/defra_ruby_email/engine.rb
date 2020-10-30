@@ -3,6 +3,7 @@
 require_relative "configuration"
 require_relative "last_email_cache"
 require_relative "last_email_observer"
+require_relative "last_notify_message"
 
 module DefraRubyEmail
   class Engine < ::Rails::Engine
