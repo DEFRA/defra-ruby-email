@@ -1,6 +1,6 @@
 # Defra Ruby Email
 
-[![Build Status](https://travis-ci.com/DEFRA/defra-ruby-email.svg?branch=main)](https://travis-ci.com/DEFRA/defra-ruby-email)
+![Build Status](https://github.com/DEFRA/defra-ruby-email/workflows/CI/badge.svg?branch=main)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_defra-ruby-email&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=DEFRA_defra-ruby-email)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_defra-ruby-email&metric=coverage)](https://sonarcloud.io/dashboard?id=DEFRA_defra-ruby-email)
 [![security](https://hakiri.io/github/DEFRA/defra-ruby-email/main.svg)](https://hakiri.io/github/DEFRA/defra-ruby-email/main)
