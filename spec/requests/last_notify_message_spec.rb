@@ -64,7 +64,7 @@ module DefraRubyEmail
       it "returns a JSON response with a 200 code containing details of the last Notify message sent" do
         get path
 
-        expect(response.content_type).to eq("application/json")
+        expect(response.media_type).to eq("application/json")
         expect(response.code).to eq("200")
 
         expect(response.body).to eq(expected_data)
