@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    defra_ruby_email (1.1.0)
+    defra_ruby_email (1.2.0)
       notifications-ruby-client
       rails (~> 6.0)
       sprockets (~> 3.7.2)
