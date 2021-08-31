@@ -1,5 +1,32 @@
 # Changelog
 
+## [v1.2.0](https://github.com/DEFRA/defra-ruby-email/tree/v1.2.0) (2021-08-31)
+
+[Full Changelog](https://github.com/DEFRA/defra-ruby-email/compare/v1.1.0...v1.2.0)
+
+**Merged pull requests:**
+
+- Enable Rails 6.0/1 [\#51](https://github.com/DEFRA/defra-ruby-email/pull/51) ([tobyprivett](https://github.com/tobyprivett))
+- Bump rspec-rails from 5.0.1 to 5.0.2 [\#50](https://github.com/DEFRA/defra-ruby-email/pull/50) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump addressable from 2.7.0 to 2.8.0 [\#49](https://github.com/DEFRA/defra-ruby-email/pull/49) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump github\_changelog\_generator from 1.16.3 to 1.16.4 [\#48](https://github.com/DEFRA/defra-ruby-email/pull/48) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump nokogiri from 1.11.3 to 1.11.5 [\#47](https://github.com/DEFRA/defra-ruby-email/pull/47) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump github\_changelog\_generator from 1.16.2 to 1.16.3 [\#45](https://github.com/DEFRA/defra-ruby-email/pull/45) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rails from 6.0.3.6 to 6.0.3.7 [\#44](https://github.com/DEFRA/defra-ruby-email/pull/44) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rexml from 3.2.4 to 3.2.5 [\#42](https://github.com/DEFRA/defra-ruby-email/pull/42) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump github\_changelog\_generator from 1.16.1 to 1.16.2 [\#41](https://github.com/DEFRA/defra-ruby-email/pull/41) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rails from 6.0.3.5 to 6.0.3.6 [\#40](https://github.com/DEFRA/defra-ruby-email/pull/40) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump github\_changelog\_generator from 1.16.0 to 1.16.1 [\#39](https://github.com/DEFRA/defra-ruby-email/pull/39) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump github\_changelog\_generator from 1.15.2 to 1.16.0 [\#38](https://github.com/DEFRA/defra-ruby-email/pull/38) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rspec-rails from 5.0.0 to 5.0.1 [\#37](https://github.com/DEFRA/defra-ruby-email/pull/37) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rspec-rails from 4.1.0 to 5.0.0 [\#36](https://github.com/DEFRA/defra-ruby-email/pull/36) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rspec-rails from 4.0.2 to 4.1.0 [\#35](https://github.com/DEFRA/defra-ruby-email/pull/35) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rails from 6.0.3.4 to 6.0.3.5 [\#34](https://github.com/DEFRA/defra-ruby-email/pull/34) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump nokogiri from 1.10.10 to 1.11.0 [\#33](https://github.com/DEFRA/defra-ruby-email/pull/33) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rspec-rails from 4.0.1 to 4.0.2 [\#32](https://github.com/DEFRA/defra-ruby-email/pull/32) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Switch from Travis CI to GitHub Actions [\#31](https://github.com/DEFRA/defra-ruby-email/pull/31) ([irisfaraway](https://github.com/irisfaraway))
+- Create Dependabot config file [\#30](https://github.com/DEFRA/defra-ruby-email/pull/30) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## [v1.1.0](https://github.com/DEFRA/defra-ruby-email/tree/v1.1.0) (2020-10-30)
 
 [Full Changelog](https://github.com/DEFRA/defra-ruby-email/compare/v1.0.0...v1.1.0)
