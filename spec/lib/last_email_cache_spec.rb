@@ -6,7 +6,7 @@ module DefraRubyEmail
   RSpec.describe LastEmailCache do
     subject(:instance) { described_class.instance }
 
-    before(:each) { instance.reset }
+    before { instance.reset }
 
     let(:recipient) { "test@example.com" }
     let(:add_attachment) { false }
@@ -21,7 +21,7 @@ module DefraRubyEmail
           result = instance.last_email_json
 
           expect(result).to be_a(String)
-          expect { JSON.parse(result) }.to_not raise_error
+          expect { JSON.parse(result) }.not_to raise_error
         end
 
         it "responds with an error message" do
@@ -33,13 +33,13 @@ module DefraRubyEmail
 
       context "when a basic email is sent" do
         context "and it is formatted as plain text" do
-          before(:each) { TestMailer.text_email(recipient, add_attachment).deliver_now }
+          before { TestMailer.text_email(recipient, add_attachment).deliver_now }
 
           it "returns a JSON string" do
             result = instance.last_email_json
 
             expect(result).to be_a(String)
-            expect { JSON.parse(result) }.to_not raise_error
+            expect { JSON.parse(result) }.not_to raise_error
           end
 
           it "contains the attributes of the email" do
@@ -56,13 +56,13 @@ module DefraRubyEmail
         end
 
         context "and it is formatted as html" do
-          before(:each) { TestMailer.html_email(recipient, add_attachment).deliver_now }
+          before { TestMailer.html_email(recipient, add_attachment).deliver_now }
 
           it "returns a JSON string" do
             result = instance.last_email_json
 
             expect(result).to be_a(String)
-            expect { JSON.parse(result) }.to_not raise_error
+            expect { JSON.parse(result) }.not_to raise_error
           end
 
           it "contains the attributes of the email" do
@@ -85,13 +85,13 @@ module DefraRubyEmail
       # multipart email
       context "when a multi-part email is sent" do
         context "and it contains both a html and text version" do
-          before(:each) { TestMailer.multipart_email(recipient, add_attachment).deliver_now }
+          before { TestMailer.multipart_email(recipient, add_attachment).deliver_now }
 
           it "returns a JSON string" do
             result = instance.last_email_json
 
             expect(result).to be_a(String)
-            expect { JSON.parse(result) }.to_not raise_error
+            expect { JSON.parse(result) }.not_to raise_error
           end
 
           it "contains the attributes of the email" do
@@ -108,7 +108,7 @@ module DefraRubyEmail
         end
 
         context "and contains both a html and text version plus an attachment" do
-          before(:each) { TestMailer.multipart_email(recipient, add_attachment).deliver_now }
+          before { TestMailer.multipart_email(recipient, add_attachment).deliver_now }
 
           let(:add_attachment) { true }
 
@@ -116,7 +116,7 @@ module DefraRubyEmail
             result = instance.last_email_json
 
             expect(result).to be_a(String)
-            expect { JSON.parse(result) }.to_not raise_error
+            expect { JSON.parse(result) }.not_to raise_error
           end
 
           it "contains the attributes of the email" do
@@ -133,7 +133,7 @@ module DefraRubyEmail
         end
 
         context "but it just contains a plain text part and an attachment" do
-          before(:each) { TestMailer.text_email(recipient, add_attachment).deliver_now }
+          before { TestMailer.text_email(recipient, add_attachment).deliver_now }
 
           let(:add_attachment) { true }
 
@@ -141,7 +141,7 @@ module DefraRubyEmail
             result = instance.last_email_json
 
             expect(result).to be_a(String)
-            expect { JSON.parse(result) }.to_not raise_error
+            expect { JSON.parse(result) }.not_to raise_error
           end
 
           it "contains the attributes of the email" do
@@ -158,7 +158,7 @@ module DefraRubyEmail
         end
 
         context "but it just contains a html part and an attachment" do
-          before(:each) { TestMailer.html_email(recipient, add_attachment).deliver_now }
+          before { TestMailer.html_email(recipient, add_attachment).deliver_now }
 
           let(:add_attachment) { true }
 
@@ -166,7 +166,7 @@ module DefraRubyEmail
             result = instance.last_email_json
 
             expect(result).to be_a(String)
-            expect { JSON.parse(result) }.to_not raise_error
+            expect { JSON.parse(result) }.not_to raise_error
           end
 
           it "contains the attributes of the email" do
@@ -184,7 +184,7 @@ module DefraRubyEmail
       end
 
       context "when multiple emails have been sent" do
-        before(:each) do
+        before do
           TestMailer.text_email(recipient, add_attachment).deliver_now
           TestMailer.text_email(last_recipient, add_attachment).deliver_now
         end
@@ -195,7 +195,7 @@ module DefraRubyEmail
           result = instance.last_email_json
 
           expect(result).to be_a(String)
-          expect { JSON.parse(result) }.to_not raise_error
+          expect { JSON.parse(result) }.not_to raise_error
         end
 
         it "contains the attributes of the email" do
