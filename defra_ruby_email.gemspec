@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.summary     = "Defra Ruby on Rails access last email engine"
   s.description = "A Rails engine which can be used to access details of the last email when loaded into an application"
   s.license     = "The Open Government Licence (OGL) Version 3"
-  s.required_ruby_version = ">= 3.2"
+  s.required_ruby_version = ">= 3.1"
   s.metadata["rubygems_mfa_required"] = "true"
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
 
