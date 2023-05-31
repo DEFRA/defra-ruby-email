@@ -17,7 +17,7 @@ When mounted in an app, it will add a new route which when called, will return d
 
 Make sure you already have:
 
-- Ruby 2.7.1
+- Ruby 3.2.2
 - [Bundler](http://bundler.io/) – for installing Ruby gems
 
 ## Mounting the engine
