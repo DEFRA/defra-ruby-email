@@ -4,7 +4,7 @@ require "rails_helper"
 require "notifications/client"
 
 module DefraRubyEmail
-  RSpec.describe "LastNotifyMessage", type: :request do
+  RSpec.describe "LastNotifyMessage" do
     after(:all) { Helpers::Configuration.reset_for_tests }
 
     let(:path) { "/defra_ruby_email/last-notify-message" }
@@ -52,7 +52,7 @@ module DefraRubyEmail
         }.to_json
       end
 
-      before(:each) do
+      before do
         Helpers::Configuration.prep_for_tests
 
         expect(DefraRubyEmail.configuration).to receive(:notify_api_key).and_return(notify_api_key)
@@ -65,7 +65,7 @@ module DefraRubyEmail
         get path
 
         expect(response.media_type).to eq("application/json")
-        expect(response.code).to eq("200")
+        expect(response).to have_http_status(:ok)
 
         expect(response.body).to eq(expected_data)
       end

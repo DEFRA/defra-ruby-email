@@ -11,7 +11,7 @@ RSpec.describe DefraRubyEmail do
   end
 
   describe "#configuration" do
-    before(:each) { Helpers::Configuration.reset_for_tests }
+    before { Helpers::Configuration.reset_for_tests }
 
     context "when the host app has not provided configuration" do
       let(:enabled) { false }

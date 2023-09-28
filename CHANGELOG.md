@@ -1,5 +1,15 @@
 # Changelog
 
+## [Unreleased](https://github.com/DEFRA/defra-ruby-email/tree/HEAD)
+
+[Full Changelog](https://github.com/DEFRA/defra-ruby-email/compare/v1.2.0...HEAD)
+
+**Merged pull requests:**
+
+- Upgrade ruby and gems; remove rails version pin [\#100](https://github.com/DEFRA/defra-ruby-email/pull/100) ([PaulDoyle-DEFRA](https://github.com/PaulDoyle-DEFRA))
+- Bump rails from 6.1.4.1 to 6.1.4.4 [\#55](https://github.com/DEFRA/defra-ruby-email/pull/55) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump nokogiri from 1.12.3 to 1.12.5 [\#52](https://github.com/DEFRA/defra-ruby-email/pull/52) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.2.0](https://github.com/DEFRA/defra-ruby-email/tree/v1.2.0) (2021-08-31)
 
 [Full Changelog](https://github.com/DEFRA/defra-ruby-email/compare/v1.1.0...v1.2.0)

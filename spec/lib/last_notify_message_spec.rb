@@ -6,7 +6,7 @@ module DefraRubyEmail
   RSpec.describe LastNotifyMessage do
     subject(:instance) { described_class.instance }
 
-    before(:each) { instance.reset }
+    before { instance.reset }
 
     let(:client) { double(:client, get_notifications: notifications) }
     let(:notifications) { double(:notifications, collection: collection) }
@@ -36,7 +36,7 @@ module DefraRubyEmail
         expect(Notifications::Client).to receive(:new).with(DefraRubyEmail.configuration.notify_api_key).and_return(client)
         expect(client).to receive(:get_notifications).and_return(notifications)
 
-        expect(instance.last_notify_message).to eq(nil)
+        expect(instance.last_notify_message).to be_nil
 
         instance.retrieve_last_notify_message
 
@@ -52,7 +52,7 @@ module DefraRubyEmail
           result = instance.last_notify_message_json
 
           expect(result).to be_a(String)
-          expect { JSON.parse(result) }.to_not raise_error
+          expect { JSON.parse(result) }.not_to raise_error
         end
 
         it "responds with an error message" do
@@ -63,7 +63,7 @@ module DefraRubyEmail
       end
 
       context "when a message has been sent" do
-        before(:each) do
+        before do
           instance.last_notify_message = notification
         end
 
@@ -71,7 +71,7 @@ module DefraRubyEmail
           result = instance.last_notify_message_json
 
           expect(result).to be_a(String)
-          expect { JSON.parse(result) }.to_not raise_error
+          expect { JSON.parse(result) }.not_to raise_error
         end
 
         it "contains the attributes of the message" do
