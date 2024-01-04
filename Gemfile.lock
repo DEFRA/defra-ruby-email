@@ -149,7 +149,7 @@ GEM
       rdoc
       reline (>= 0.3.8)
     json (2.6.3)
-    jwt (2.7.0)
+    jwt (2.7.1)
     language_server-protocol (3.17.0.3)
     loofah (2.22.0)
       crass (~> 1.0.2)
@@ -179,7 +179,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
-    notifications-ruby-client (5.4.0)
+    notifications-ruby-client (6.0.0)
       jwt (>= 1.5, < 3)
     octokit (4.25.1)
       faraday (>= 1, < 3)
