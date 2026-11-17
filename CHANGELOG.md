@@ -2,13 +2,31 @@
 
 ## [Unreleased](https://github.com/DEFRA/defra-ruby-email/tree/HEAD)
 
-[Full Changelog](https://github.com/DEFRA/defra-ruby-email/compare/v1.2.0...HEAD)
+[Full Changelog](https://github.com/DEFRA/defra-ruby-email/compare/v1.3.0...HEAD)
+
+**Implemented enhancements:**
+
+- Feature/notify reference last email [\#157](https://github.com/DEFRA/defra-ruby-email/pull/157) ([PaulDoyle-EA](https://github.com/PaulDoyle-EA))
 
 **Merged pull requests:**
 
-- Upgrade ruby and gems; remove rails version pin [\#100](https://github.com/DEFRA/defra-ruby-email/pull/100) ([PaulDoyle-DEFRA](https://github.com/PaulDoyle-DEFRA))
+- Bump rdoc from 6.6.0 to 6.6.3.1 [\#129](https://github.com/DEFRA/defra-ruby-email/pull/129) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rspec-rails from 6.0.3 to 6.1.0 [\#114](https://github.com/DEFRA/defra-ruby-email/pull/114) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rails from 7.0.8 to 7.1.2 [\#113](https://github.com/DEFRA/defra-ruby-email/pull/113) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rubocop-rspec from 2.22.0 to 2.25.0 [\#112](https://github.com/DEFRA/defra-ruby-email/pull/112) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rails from 7.0.5 to 7.0.8 [\#111](https://github.com/DEFRA/defra-ruby-email/pull/111) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump activesupport from 7.0.5 to 7.0.7.2 [\#110](https://github.com/DEFRA/defra-ruby-email/pull/110) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Release/v1.3.0 [\#103](https://github.com/DEFRA/defra-ruby-email/pull/103) ([PaulDoyle-EA](https://github.com/PaulDoyle-EA))
+- Release/v1.3.0 [\#102](https://github.com/DEFRA/defra-ruby-email/pull/102) ([PaulDoyle-EA](https://github.com/PaulDoyle-EA))
+- Upgrade ruby and gems; remove rails version pin [\#100](https://github.com/DEFRA/defra-ruby-email/pull/100) ([PaulDoyle-EA](https://github.com/PaulDoyle-EA))
+- Bump rack from 2.2.3 to 2.2.6.4 [\#95](https://github.com/DEFRA/defra-ruby-email/pull/95) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump globalid from 1.0.0 to 1.0.1 [\#86](https://github.com/DEFRA/defra-ruby-email/pull/86) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump rails from 6.1.4.1 to 6.1.4.4 [\#55](https://github.com/DEFRA/defra-ruby-email/pull/55) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump nokogiri from 1.12.3 to 1.12.5 [\#52](https://github.com/DEFRA/defra-ruby-email/pull/52) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v1.3.0](https://github.com/DEFRA/defra-ruby-email/tree/v1.3.0) (2023-05-31)
+
+[Full Changelog](https://github.com/DEFRA/defra-ruby-email/compare/v1.2.0...v1.3.0)
 
 ## [v1.2.0](https://github.com/DEFRA/defra-ruby-email/tree/v1.2.0) (2021-08-31)
 
