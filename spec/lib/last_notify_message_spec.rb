@@ -8,28 +8,7 @@ module DefraRubyEmail
 
     before { instance.reset }
 
-    let(:client) { double(:client, get_notifications: notifications) }
-    let(:notifications) { double(:notifications, collection: collection) }
-    let(:collection) { double(:collection, first: notification) }
-    let(:notification) do
-      double(:notification,
-             type: "email",
-             template: "template",
-             subject: "Subject",
-             body: "Body",
-             sent_at: "datetime",
-             email_address: "test@example.com",
-             phone_number: nil,
-             line_1: nil,
-             line_2: nil,
-             line_3: nil,
-             line_4: nil,
-             line_5: nil,
-             line_6: nil,
-             postcode: nil)
-    end
-
-    let(:expected_keys) { %w[type template subject body date to line_1 line_2 line_3 line_4 line_5 line_6 postcode] }
+    include_context "with a stubbed Notify client"
 
     describe "#retrieve_last_notify_message" do
       it "makes a call to the Notify client" do
@@ -46,8 +25,6 @@ module DefraRubyEmail
 
     describe "#last_notify_message_json" do
       context "when no messages have been sent" do
-        let(:expected_keys) { %w[error] }
-
         it "returns a JSON string" do
           result = instance.last_notify_message_json
 
@@ -58,7 +35,7 @@ module DefraRubyEmail
         it "responds with an error message" do
           result = JSON.parse(instance.last_notify_message_json)
 
-          expect(result.keys).to match_array(expected_keys)
+          expect(result.keys).to match_array(%w[error])
         end
       end
 
@@ -74,10 +51,10 @@ module DefraRubyEmail
           expect { JSON.parse(result) }.not_to raise_error
         end
 
-        it "contains the attributes of the message" do
+        it "contains the details of the message" do
           result = JSON.parse(instance.last_notify_message_json)
 
-          expect(result["last_notify_message"].keys).to match_array(expected_keys)
+          expect(result["last_notify_message"]).to eq(expected_notify_message)
         end
       end
     end

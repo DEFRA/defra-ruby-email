@@ -10,48 +10,10 @@ module DefraRubyEmail
     let(:path) { "/defra_ruby_email/last-notify-message" }
 
     let(:notify_api_key) { "hello-i-am-a-key" }
-    let(:client) { double(:client, get_notifications: notifications) }
-    let(:notifications) { double(:notifications, collection: collection) }
-    let(:collection) { double(:collection, first: notification) }
-    let(:notification) do
-      double(:notification,
-             type: "email",
-             template: "template",
-             subject: "Subject",
-             body: "Body",
-             sent_at: "datetime",
-             email_address: "test@example.com",
-             phone_number: nil,
-             line_1: nil,
-             line_2: nil,
-             line_3: nil,
-             line_4: nil,
-             line_5: nil,
-             line_6: nil,
-             postcode: nil)
-    end
+
+    include_context "with a stubbed Notify client"
 
     context "when the API is enabled" do
-      let(:expected_data) do
-        {
-          last_notify_message: {
-            type: "email",
-            template: "template",
-            subject: "Subject",
-            body: "Body",
-            date: "datetime",
-            to: "test@example.com",
-            line_1: nil,
-            line_2: nil,
-            line_3: nil,
-            line_4: nil,
-            line_5: nil,
-            line_6: nil,
-            postcode: nil
-          }
-        }.to_json
-      end
-
       before do
         Helpers::Configuration.prep_for_tests
 
@@ -67,7 +29,7 @@ module DefraRubyEmail
         expect(response.media_type).to eq("application/json")
         expect(response).to have_http_status(:ok)
 
-        expect(response.body).to eq(expected_data)
+        expect(response.parsed_body).to eq("last_notify_message" => expected_notify_message)
       end
     end
 
