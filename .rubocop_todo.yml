@@ -13,6 +13,12 @@ Gemspec/RequiredRubyVersion:
   Exclude:
     - 'defra_ruby_email.gemspec'
 
+# Offense count: 1
+# Message attributes are assigned one per line for legibility
+Metrics/AbcSize:
+  Exclude:
+    - 'lib/defra_ruby_email/last_notify_message.rb'
+
 # Offense count: 4
 RSpec/BeforeAfterAll:
   Exclude:
