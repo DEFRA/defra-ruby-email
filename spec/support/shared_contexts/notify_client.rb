@@ -7,6 +7,7 @@ RSpec.shared_context "with a stubbed Notify client" do
     {
       type: "email",
       template: "template",
+      reference: "foo",
       subject: "Subject",
       body: "Body",
       sent_at: "datetime",

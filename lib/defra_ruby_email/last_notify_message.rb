@@ -27,6 +27,7 @@ module DefraRubyEmail
       message_hash = {}
       message_hash[:type] = last_notify_message.type
       message_hash[:template] = last_notify_message.template
+      message_hash[:reference] = last_notify_message.reference
       message_hash[:subject] = last_notify_message.subject
       message_hash[:body] = last_notify_message.body
       message_hash[:date] = last_notify_message.sent_at
